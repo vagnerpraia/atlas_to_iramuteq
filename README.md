@@ -6,6 +6,7 @@ Lista de parâmetros a serem passados na linha de comando:
 
 * pathAtlasFile = Caminho do arquivo com o questionário do Atlas
 * pathCsvFile = Caminho do arquivo CSV com o dicionário de labels
+* pathResultFile = Caminho do arquivo com o resultado do processamento
 * separatorCsv = Separador utilizado no CSV
 
 ## Comandos
