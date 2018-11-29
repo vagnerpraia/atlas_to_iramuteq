@@ -1,5 +1,9 @@
 package main
 
+import (
+	service "github.com/vagnerpraia/atlas_to_iramuteq/service"
+)
+
 func main() {
 	args := os.Args[1:]
 
@@ -16,5 +20,5 @@ func main() {
 		separatorCsv = args[3]
 	}
 
-	ConvertFile(pathAtlasFile, pathCsvFile, pathResultFile, separatorCsv)
+	service.ConvertFile(pathAtlasFile, pathCsvFile, pathResultFile, separatorCsv)
 }
