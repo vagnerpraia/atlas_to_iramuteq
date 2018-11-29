@@ -20,7 +20,6 @@ func readFile(pathFile string) {
     }
 
     reader := bufio.NewReader(file)
-	//fmt.Println(reflect.TypeOf(reader))
 
 	var lines []string
     for {
@@ -48,25 +47,39 @@ func readFile(pathFile string) {
 
 	interviewMap := make(map[string][]string)
 	var keyInterview string
-	for index, line := range lines {
-		
-		flagRegexHead := true
+	for _, line := range lines {
+		flagHead := true
 		if version == 8 {
-			re := regexp.MustCompile("([0-9]*):([0-9]*) .*")
-			flagRegexHead = re.MatchString(line)
+			re := regexp.MustCompile("\\([0-9]*:[0-9]*\\) - [a-zA-Z] ?[0-9]*: [0-9]*e?$")
+			flagHead = re.MatchString(line)
 		} else if version == 7 {
-			flagRegexHead = strings.Constains("   (Super)", line)
+			flagHead = strings.Contains(line, "   (Super)")
 		}
 
-		if flagRegexHead {
-			re := regexp.MustCompile(".1 [0-9]*: [0-9]*([a-zA-Z]1)?")
-			substringRegex := re.FindStringSubmatch(line)
-			substringAdjusted := substringRegex[strings.Index(":") + 2 :]
+		//fmt.Println(reflect.TypeOf(line))
 
-			re = regexp.MustCompile("[0-9]*")
-			keyInterview := re.FindStringSubmatch(substringAdjusted)
-		} else if len(line) > 0 && line[0:6] != "Codes:" && line[0:8] != "No memos" {
-			interviewMap[key_interview] = append(interviewMap[key_interview], line)
+		if flagHead {
+			var substringRegex []string
+			if version == 8 {
+				re := regexp.MustCompile("[a-zA-Z] ?[0-9]*: [0-9]*e?$")
+				substringRegex = re.FindStringSubmatch(line)
+			} else if version == 7 {
+				re := regexp.MustCompile("^a-zA-Z] ?[0-9]*: [0-9]*e?")
+				substringRegex = re.FindStringSubmatch(line)
+			}
+
+			fmt.Println(substringRegex)
+
+			//substringAdjusted := substringRegex[strings.Index(substringRegex, ":") + 2 :]
+
+			//re = regexp.MustCompile("[0-9]*")
+			//keyInterview = re.FindStringSubmatch(substringAdjusted)
+		} else if len(line) > 0 {
+			flagContainsCode := strings.Contains("Codes:", line)
+			flagContainsNoMemos := strings.Contains("No memos", line)
+			if flagContainsCode && flagContainsNoMemos {
+				interviewMap[keyInterview] = append(interviewMap[keyInterview], line)
+			}
 		}
 	}
 }
