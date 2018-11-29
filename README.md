@@ -16,11 +16,11 @@ Lista de parâmetros a serem passados na linha de comando:
 #### Testes Unitários
 
 ```
-go test ./test/service -v -run TestLoad
+go test ./test -v -run TestConvertFile
 ```
 
 ### Build
 
 ```
-go build -o ./bin/etl_siconv.exe ./*.go
+go build -o ./bin/atlas_to_iramuteq.exe ./*.go
 ```
