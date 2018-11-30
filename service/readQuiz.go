@@ -9,8 +9,8 @@ import (
 	"strings"
 )
 
-func readQuiz(pathFile string) map[string][]string {
-    file, err := os.Open(pathFile)
+func readQuiz(pathQuizFile string) map[string][]string {
+    file, err := os.Open(pathQuizFile)
     defer file.Close()
 
     if err != nil {
@@ -46,6 +46,7 @@ func readQuiz(pathFile string) map[string][]string {
 	quizMap := make(map[string][]string)
 	var key string
 	for _, line := range lines {
+		line = strings.Replace(line, "\n", "", 1)
 		flagHead := true
 		if version == 8 {
 			re := regexp.MustCompile("\\([0-9]*:[0-9]*\\) - [a-zA-Z] ?[0-9]*: [0-9]*e?$")
@@ -69,7 +70,6 @@ func readQuiz(pathFile string) map[string][]string {
 
 			key = strings.Replace(substringRegex, "e", "", 1)
 		} else {
-			line = strings.Replace(line, "\n", "", 1)
 			flagContainsContent := false
 			if len(line) > 0 {
 				flagContainsContent = true
