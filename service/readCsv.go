@@ -35,9 +35,10 @@ func readCsv(pathFile string, separator string) ([]string, map[string][]string) 
 	flagHeader := true
 	csvMap := make(map[string][]string)
 	for _, line := range lines {
-		line = strings.Replace(line, "\n", "", 1)
-		
-		re := regexp.MustCompile("(\"[^\",]+),([^\"]+\")")
+		re := regexp.MustCompile(`\r?\n`)
+		line = re.ReplaceAllString(line, "")
+
+		re = regexp.MustCompile("(\"[^\",]+),([^\"]+\")")
 		stringsCommaRegex := re.FindStringSubmatch(line)
 		for _, s := range stringsCommaRegex {
 			stringAdjusted := strings.Replace(s, ",", "|||", 1)
