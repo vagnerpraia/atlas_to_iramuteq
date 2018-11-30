@@ -10,7 +10,7 @@ func TestConvertFileVersion7(t *testing.T) {
 	pathAtlasFile := "C:/Teste/atlas_to_iramuteq/questionario_version7.txt"
 	pathCsvFile := "C:/Teste/atlas_to_iramuteq/escala.csv"
 	pathResultFile := "C:/Teste/atlas_to_iramuteq/resultado_version7.txt"
-	separatorCsv := ";"
+	separatorCsv := ","
 
 	response := service.ConvertFile(pathAtlasFile, pathCsvFile, pathResultFile, separatorCsv)
 	if response == false {
