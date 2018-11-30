@@ -11,7 +11,7 @@ import (
 	"strings"
 )
 
-func readFile(pathFile string) {
+func readInterview(pathFile string) map[string][]string {
     file, err := os.Open(pathFile)
     defer file.Close()
 
@@ -69,7 +69,7 @@ func readFile(pathFile string) {
 			re = regexp.MustCompile("[0-9]*e?$")
 			substringRegex = re.FindStringSubmatch(substringRegex)[0]
 
-			keyInterview := strings.Replace(substringRegex, "e", "", 1)
+			keyInterview = strings.Replace(substringRegex, "e", "", 1)
 		} else if len(line) > 0 {
 			flagContainsCode := strings.Contains("Codes:", line)
 			flagContainsNoMemos := strings.Contains("No memos", line)
@@ -79,11 +79,12 @@ func readFile(pathFile string) {
 		}
 	}
 
-	fmt.Println(reflect.TypeOf(interviewMap))
+	return interviewMap
 }
 
 func ConvertFile(pathAtlasFile string, pathCsvFile string, pathResultFile string, separatorCsv string) bool {
-	readFile(pathAtlasFile)
+	interview := readInterview(pathAtlasFile)
+	fmt.Println(reflect.TypeOf(interview))
 
 	return true
 }
