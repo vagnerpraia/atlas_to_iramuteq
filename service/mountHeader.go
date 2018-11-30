@@ -1,6 +1,6 @@
 package service
 
-func mountResult(csvHeader []string, csvMap map[string][]string) map[string][]string {
+func mountHeader(csvHeader []string, csvMap map[string][]string) map[string][]string {
 	headerMap := make(map[string][]string)
 	for index, data := range csvMap {
 		header := "****"
