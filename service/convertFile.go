@@ -8,12 +8,14 @@ func ConvertFile(pathAtlasFile string, pathCsvFile string, pathResultFile string
 	//interviewMap := readInterview(pathAtlasFile)
 	//csvHeader, csvMap := readCsv(pathCsvFile, separatorCsv)
 	_, csvMap := readCsv(pathCsvFile, separatorCsv)
-	fmt.Println(len(csvMap))
 
-	for index, question := range csvMap {
-		fmt.Println(index)
-		fmt.Println(question)
-		fmt.Println("")
+	for index, data := range csvMap {
+		if len(data) != 73 {
+			fmt.Println(index)
+			fmt.Println(data)
+			fmt.Println(len(data))
+			fmt.Println("")
+		}
 	}
 
 	return true
