@@ -9,7 +9,7 @@ import (
 func main() {
 	args := os.Args[1:]
 
-	pathAtlasFile := args[0]
+	pathQuizFile := args[0]
 	pathCsvFile := args[1]
 
 	pathResultFile := "result.txt"
@@ -22,5 +22,5 @@ func main() {
 		separatorCsv = args[3]
 	}
 
-	service.ConvertFile(pathAtlasFile, pathCsvFile, pathResultFile, separatorCsv)
+	service.ConvertFile(pathQuizFile, pathCsvFile, pathResultFile, separatorCsv)
 }
