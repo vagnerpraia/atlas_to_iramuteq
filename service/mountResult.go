@@ -1,14 +1,15 @@
 package service
 
-func mountResult(csvHeader []string, csvMap map[string][]string) map[string][]string {
-	headerMap := make(map[string][]string)
-	for index, data := range csvMap {
+func mountResult(quizMap map[string][]string, headerMap map[string][]string) map[string][]string {
+	resultMap := make(map[string][]string)
+	/*
+	for index, data := range quizMap {
 		header := "****"
 		for k, v := range data {
 			header += " *" + csvHeader[k] + "_" + v
 		}
 		headerMap[index] = append(headerMap[index], header)
 	}
-
-	return headerMap
+	*/
+	return resultMap
 }

@@ -8,6 +8,7 @@ func ConvertFile(pathQuizFile string, pathCsvFile string, pathResultFile string,
 	//quizMap := readQuiz(pathQuizFile)
 	csvHeader, csvMap := readCsv(pathCsvFile, separatorCsv)
 	headerMap := mountHeader(csvHeader, csvMap)
+	//resultMap := mountResult(quizMap, headerMap)
 
 	for index, data := range headerMap {
 		fmt.Println(index)
