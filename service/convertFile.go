@@ -5,6 +5,7 @@ func ConvertFile(pathQuizFile string, pathCsvFile string, pathResultFile string,
 	csvHeader, csvMap := readCsv(pathCsvFile, separatorCsv)
 	headerMap := mountHeader(csvHeader, csvMap)
 	resultMap := mountResult(quizMap, headerMap)
+	writeResult(resultMap, pathResultFile)
 
 	return true
 }

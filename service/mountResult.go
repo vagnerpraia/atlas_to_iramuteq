@@ -4,11 +4,9 @@ func mountResult(quizMap map[string][]string, headerMap map[string]string) map[s
 	resultMap := make(map[string][]string)
 
 	for index, quiz := range quizMap {
-		header := headerMap[index]
-		resultMap[index] = append(resultMap[index], header)
-
 		for _, data := range quiz {
-			resultMap[index] = append(resultMap[index], data)
+			resultMap[index] = append(resultMap[index], headerMap[index] + "\n")
+			resultMap[index] = append(resultMap[index], data + "\n")
 		}		
 	}
 

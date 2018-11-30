@@ -11,7 +11,7 @@ func writeResult(resultMap map[string][]string, pathResultFile string) {
         log.Fatal(err)
 	}
 
-	for index, result := range resultMap {
+	for _, result := range resultMap {
 		for _, data := range result {
 			//fmt.Println(data)
 			if _, err := f.Write([]byte(data))
