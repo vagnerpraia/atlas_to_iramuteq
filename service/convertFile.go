@@ -7,7 +7,7 @@ import (
     "log"
 	"os"
 	"regexp"
-	//"reflect"
+	"reflect"
 	"strings"
 )
 
@@ -56,24 +56,20 @@ func readFile(pathFile string) {
 			flagHead = strings.Contains(line, "   (Super)")
 		}
 
-		//fmt.Println(reflect.TypeOf(line))
-
 		if flagHead {
-			var substringRegex []string
+			var pattern string
 			if version == 8 {
-				re := regexp.MustCompile("[a-zA-Z] ?[0-9]*: [0-9]*e?$")
-				substringRegex = re.FindStringSubmatch(line)
+				pattern = "[a-zA-Z] ?[0-9]*: [0-9]*e?$"
 			} else if version == 7 {
-				re := regexp.MustCompile("^a-zA-Z] ?[0-9]*: [0-9]*e?")
-				substringRegex = re.FindStringSubmatch(line)
+				pattern = "^[a-zA-Z] ?[0-9]*: [0-9]*e?"
 			}
+			re := regexp.MustCompile(pattern)
+			substringRegex := re.FindStringSubmatch(line)[0]
 
-			fmt.Println(substringRegex)
+			re = regexp.MustCompile("[0-9]*e?$")
+			substringRegex = re.FindStringSubmatch(substringRegex)[0]
 
-			//substringAdjusted := substringRegex[strings.Index(substringRegex, ":") + 2 :]
-
-			//re = regexp.MustCompile("[0-9]*")
-			//keyInterview = re.FindStringSubmatch(substringAdjusted)
+			keyInterview := strings.Replace(substringRegex, "e", "", 1)
 		} else if len(line) > 0 {
 			flagContainsCode := strings.Contains("Codes:", line)
 			flagContainsNoMemos := strings.Contains("No memos", line)
@@ -82,6 +78,8 @@ func readFile(pathFile string) {
 			}
 		}
 	}
+
+	fmt.Println(reflect.TypeOf(interviewMap))
 }
 
 func ConvertFile(pathAtlasFile string, pathCsvFile string, pathResultFile string, separatorCsv string) bool {
