@@ -6,7 +6,7 @@ func mountHeader(csvHeader []string, csvMap map[string][]string) map[string]stri
 	for index, data := range csvMap {
 		header := "****"
 		for k, v := range data {
-			header += " *" + csvHeader[k] + "_" + v
+			header += " *" + csvHeader[k + 1] + "_" + v
 		}
 		headerMap[index] = header
 	}

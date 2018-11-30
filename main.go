@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+
 	service "github.com/vagnerpraia/atlas_to_iramuteq/service"
 )
 
