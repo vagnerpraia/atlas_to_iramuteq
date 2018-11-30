@@ -4,8 +4,8 @@ import (
 	"fmt"
 )
 
-func ConvertFile(pathAtlasFile string, pathCsvFile string, pathResultFile string, separatorCsv string) bool {
-	//interviewMap := readInterview(pathAtlasFile)
+func ConvertFile(pathQuizFile string, pathCsvFile string, pathResultFile string, separatorCsv string) bool {
+	//quizMap := readQuiz(pathQuizFile)
 	csvHeader, csvMap := readCsv(pathCsvFile, separatorCsv)
 	headerMap := mountHeader(csvHeader, csvMap)
 

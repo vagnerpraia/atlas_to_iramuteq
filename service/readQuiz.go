@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-func readInterview(pathFile string) map[string][]string {
+func readQuiz(pathFile string) map[string][]string {
     file, err := os.Open(pathFile)
     defer file.Close()
 
@@ -43,8 +43,8 @@ func readInterview(pathFile string) map[string][]string {
 		lines = lines[15:]
 	}
 
-	interviewMap := make(map[string][]string)
-	var keyInterview string
+	quizMap := make(map[string][]string)
+	var key string
 	for _, line := range lines {
 		flagHead := true
 		if version == 8 {
@@ -67,7 +67,7 @@ func readInterview(pathFile string) map[string][]string {
 			re = regexp.MustCompile("[0-9]*e?$")
 			substringRegex = re.FindStringSubmatch(substringRegex)[0]
 
-			keyInterview = strings.Replace(substringRegex, "e", "", 1)
+			key = strings.Replace(substringRegex, "e", "", 1)
 		} else {
 			line = strings.Replace(line, "\n", "", 1)
 			flagContainsContent := false
@@ -78,10 +78,10 @@ func readInterview(pathFile string) map[string][]string {
 			flagContainsCode := strings.Contains(line, "Codes:")
 			flagContainsNoMemos := strings.Contains(line, "No memos")
 			if flagContainsContent && !flagContainsCode && !flagContainsNoMemos {
-				interviewMap[keyInterview] = append(interviewMap[keyInterview], line)
+				quizMap[key] = append(quizMap[key], line)
 			}
 		}
 	}
 
-	return interviewMap
+	return quizMap
 }
