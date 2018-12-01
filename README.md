@@ -16,8 +16,8 @@ Lista de parâmetros a serem passados na linha de comando:
 #### Testes Unitários
 
 ```
-go test ./test -v -run TestConvertFileVersion7
-go test ./test -v -run TestConvertFileVersion8
+go test ./test/service -v -run TestConvertFileVersion7
+go test ./test/service -v -run TestConvertFileVersion8
 ```
 
 #### Testes do executável
