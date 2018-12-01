@@ -36,7 +36,8 @@ func readCsv(pathFile string, separator string) ([]string, map[string][]string) 
 	csvMap := make(map[string][]string)
 	for _, line := range lines {
 		re := regexp.MustCompile(`\r?\n`)
-		line = re.ReplaceAllString(line, "")
+		line = re.ReplaceAllString(line, " ")
+		line = strings.TrimSpace(line)
 
 		re = regexp.MustCompile("(\"[^\",]+),([^\"]+\")")
 		stringsCommaRegex := re.FindStringSubmatch(line)

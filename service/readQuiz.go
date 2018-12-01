@@ -47,7 +47,8 @@ func readQuiz(pathQuizFile string) map[string][]string {
 	var key string
 	for _, line := range lines {
 		re := regexp.MustCompile(`\r?\n`)
-		line = re.ReplaceAllString(line, "")
+		line = re.ReplaceAllString(line, " ")
+		line = strings.TrimSpace(line)
 
 		flagHead := true
 		if version == 8 {
