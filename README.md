@@ -29,6 +29,14 @@ go test ./test -v -run TestConvertFileVersion8
 
 ### Build
 
+Com debug ativado:
 ```
-go build -o ./bin/atlas_to_iramuteq.exe ./*.go
+GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -a -ldflags '-extldflags "-static"' -o ./bin/atlas_to_iramuteq.exe ./*.go
+GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -a -ldflags '-extldflags "-static"' -o ./bin/atlas_to_iramuteq ./*.go
+```
+
+Com debug desativado:
+```
+GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -a -ldflags '-extldflags "-static" -s -w' -o ./bin/atlas_to_iramuteq.exe ./*.go
+GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -a -ldflags '-extldflags "-static" -s -w' -o ./bin/atlas_to_iramuteq ./*.go
 ```
