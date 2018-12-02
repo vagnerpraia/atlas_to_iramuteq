@@ -11,11 +11,11 @@ Versão atual (1.0.0)
 
 Lista de parâmetros e sua respectiva ordem de utilização:
 
-* pathQuizFile: Caminho do arquivo com o questionário do Atlas
-* pathCsvFile: Caminho do arquivo CSV com o dicionário de labels
-* pathResultFile: Caminho do arquivo com o resultado do processamento
-* separatorCsv: Separador utilizado no CSV
-* quoteCsv: Indicador de fronteira dos dados utilizado no CSV
+* pathQuizFile: Caminho do arquivo com o questionário do Atlas (default: questionario.txt)
+* pathCsvFile: Caminho do arquivo CSV com o dicionário de labels (default: escala.csv)
+* pathResultFile: Caminho do arquivo com o resultado do processamento (default: resultado.txt)
+* separatorCsv: Separador utilizado no CSV (default: ;)
+* quoteCsv: Indicador de fronteira dos dados utilizado no CSV (default: ")
 
 ## Comandos
 
