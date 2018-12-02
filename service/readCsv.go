@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-func readCsv(pathFile string, separator string, quoteCsv string) ([]string, map[string][]string) {
+func readCsv(pathFile string, separator string, quote string) ([]string, map[string][]string) {
 	csvFile, err := os.Open(pathFile)
 	defer csvFile.Close()
 
@@ -39,18 +39,11 @@ func readCsv(pathFile string, separator string, quoteCsv string) ([]string, map[
 		line = re.ReplaceAllString(line, " ")
 		line = strings.TrimSpace(line)
 
-		//re = regexp.MustCompile("(\"[^\",]+),([^\"]+\")")
-		re = regexp.MustCompile("(" + quoteCsv + "[^" + quoteCsv + ",]+),([^" + quoteCsv + "]+" + quoteCsv + ")")
+		pattern := "(" + quote + "[^" + quote + ",]+),([^" + quote + "]+" + quote + ")"
+		re = regexp.MustCompile(pattern)
 		stringsCommaRegex := re.FindStringSubmatch(line)
 		for _, s := range stringsCommaRegex {
-			stringAdjusted := strings.Replace(s, ",", "|||", 1)
-			line = strings.Replace(line, s, stringAdjusted, 1)
-		}
-
-		re = regexp.MustCompile("(\"[^\";]+);([^\"]+\")")
-		stringsSemicolonRegex := re.FindStringSubmatch(line)
-		for _, s := range stringsSemicolonRegex {
-			stringAdjusted := strings.Replace(s, ";", "\\\\\\", 1)
+			stringAdjusted := strings.Replace(s, separator, "|||", 1)
 			line = strings.Replace(line, s, stringAdjusted, 1)
 		}
 
@@ -58,9 +51,8 @@ func readCsv(pathFile string, separator string, quoteCsv string) ([]string, map[
 			header = strings.Split(line, separator)
 
 			for index, data := range header {
-				data = strings.Trim(data, quoteCsv)
-				data = strings.Replace(data, "|||", ",", 1)
-				data = strings.Replace(data, "\\\\\\", ";", 1)
+				data = strings.Trim(data, quote)
+				data = strings.Replace(data, "|||", separator, 1)
 
 				header[index] = data
 			}
@@ -73,9 +65,8 @@ func readCsv(pathFile string, separator string, quoteCsv string) ([]string, map[
 			value := content[1:]
 
 			for _, data := range value {
-				data = strings.Trim(data, quoteCsv)
-				data = strings.Replace(data, "|||", ",", 1)
-				data = strings.Replace(data, "\\\\\\", ";", 1)
+				data = strings.Trim(data, quote)
+				data = strings.Replace(data, "|||", separator, 1)
 
 				csvMap[key] = append(csvMap[key], data)
 			}
