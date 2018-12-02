@@ -35,7 +35,7 @@ func main() {
 		quoteCsv = args[4]
 	}
 
-	control.Config := model.Config{
+	control.Config = model.Config{
 		pathQuizFile,
 		pathCsvFile,
 		pathResultFile,

@@ -1,6 +1,12 @@
 # Atlas to Iramuteq
 Programa para a geração de arquivo para o programa Iramuteq, a partir de arquivos usados em questionários do programa Atlas.
 
+## Download
+
+Versão atual (1.0.0)
+* Windows [atlas_to_iramuteq.exe](https://github.com/vagnerpraia/atlas_to_iramuteq/releases/download/1.0.0/atlas_to_iramuteq)
+* Linx [atlas_to_iramuteq](https://github.com/vagnerpraia/atlas_to_iramuteq/releases/download/1.0.0/atlas_to_iramuteq.exe)
+
 ## Parâmetros
 
 Lista de parâmetros e sua respectiva ordem de utilização:
@@ -13,9 +19,9 @@ Lista de parâmetros e sua respectiva ordem de utilização:
 
 ## Comandos
 
-### Teste
+### Testes
 
-#### Testes Unitários
+#### Testes unitários
 
 ```
 go test ./test/control -v -run TestRouterVersion7
@@ -29,7 +35,7 @@ bin/atlas_to_iramuteq.exe C:/Teste/atlas_to_iramuteq/questionario_version7.txt C
 bin/atlas_to_iramuteq.exe C:/Teste/atlas_to_iramuteq/questionario_version8.txt C:/Teste/atlas_to_iramuteq/escala.csv C:/Teste/atlas_to_iramuteq/resultado_version8.txt "," """
 ```
 
-### Build
+## Build
 
 Com debug ativado:
 ```
