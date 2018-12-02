@@ -20,7 +20,7 @@ func main() {
 		pathCsvFile = args[1]
 	}
 
-	pathResultFile := "result.txt"
+	pathResultFile := "resultado.txt"
 	if len(args) > 2 {
 		pathResultFile = args[2]
 	}
