@@ -4,18 +4,18 @@ Programa para a geração de arquivo para o programa Iramuteq, a partir de arqui
 ## Download
 
 Versão atual (1.0.0)
-* Windows [atlas_to_iramuteq.exe](https://github.com/vagnerpraia/atlas_to_iramuteq/releases/download/1.0.0/atlas_to_iramuteq)
-* Linx [atlas_to_iramuteq](https://github.com/vagnerpraia/atlas_to_iramuteq/releases/download/1.0.0/atlas_to_iramuteq.exe)
+* Windows: [atlas_to_iramuteq.exe](https://github.com/vagnerpraia/atlas_to_iramuteq/releases/download/1.0.0/atlas_to_iramuteq)
+* Linux: [atlas_to_iramuteq](https://github.com/vagnerpraia/atlas_to_iramuteq/releases/download/1.0.0/atlas_to_iramuteq.exe)
 
 ## Parâmetros
 
 Lista de parâmetros e sua respectiva ordem de utilização:
 
-* pathQuizFile = Caminho do arquivo com o questionário do Atlas
-* pathCsvFile = Caminho do arquivo CSV com o dicionário de labels
-* pathResultFile = Caminho do arquivo com o resultado do processamento
-* separatorCsv = Separador utilizado no CSV
-* quoteCsv = Indicador de fronteira dos dados utilizado no CSV
+* pathQuizFile: Caminho do arquivo com o questionário do Atlas (default: questionario.txt)
+* pathCsvFile: Caminho do arquivo CSV com o dicionário de labels (default: escala.csv)
+* pathResultFile: Caminho do arquivo com o resultado do processamento (default: resultado.txt)
+* separatorCsv: Separador utilizado no CSV (default: ;)
+* quoteCsv: Indicador de fronteira dos dados utilizado no CSV (default: ")
 
 ## Comandos
 
