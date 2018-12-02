@@ -11,8 +11,9 @@ func TestConvertFileVersion7(t *testing.T) {
 	pathCsvFile := "C:/Teste/atlas_to_iramuteq/escala.csv"
 	pathResultFile := "C:/Teste/atlas_to_iramuteq/resultado_version7.txt"
 	separatorCsv := ","
+	quoteCsv := "\""
 
-	response := service.ConvertFile(pathQuizFile, pathCsvFile, pathResultFile, separatorCsv)
+	response := service.ConvertFile(pathQuizFile, pathCsvFile, pathResultFile, separatorCsv, quoteCsv)
 	if response == false {
 		t.Errorf("Ocorreu um erro.")
 	}
@@ -23,8 +24,9 @@ func TestConvertFileVersion8(t *testing.T) {
 	pathCsvFile := "C:/Teste/atlas_to_iramuteq/escala.csv"
 	pathResultFile := "C:/Teste/atlas_to_iramuteq/resultado_version8.txt"
 	separatorCsv := ";"
+	quoteCsv := "\""
 
-	response := service.ConvertFile(pathQuizFile, pathCsvFile, pathResultFile, separatorCsv)
+	response := service.ConvertFile(pathQuizFile, pathCsvFile, pathResultFile, separatorCsv, quoteCsv)
 	if response == false {
 		t.Errorf("Ocorreu um erro.")
 	}
