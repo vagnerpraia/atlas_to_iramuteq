@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-func readCsv(pathFile string, separator string) ([]string, map[string][]string) {
+func readCsv(pathFile string, separator string, quoteCsv string) ([]string, map[string][]string) {
 	csvFile, err := os.Open(pathFile)
 	defer csvFile.Close()
 
@@ -56,9 +56,12 @@ func readCsv(pathFile string, separator string) ([]string, map[string][]string) 
 		if flagHeader {
 			header = strings.Split(line, separator)
 
-			for index, _ := range header {
-				header[index] = strings.Replace(header[index], "|||", ",", 1)
-				header[index] = strings.Replace(header[index], "\\\\\\", ";", 1)
+			for index, data := range header {
+				data = strings.Trim(data, quoteCsv)
+				data = strings.Replace(data, "|||", ",", 1)
+				data = strings.Replace(data, "\\\\\\", ";", 1)
+
+				header[index] = data
 			}
 
 			flagHeader = false
@@ -69,6 +72,7 @@ func readCsv(pathFile string, separator string) ([]string, map[string][]string) 
 			value := content[1:]
 
 			for _, data := range value {
+				data = strings.Trim(data, quoteCsv)
 				data = strings.Replace(data, "|||", ",", 1)
 				data = strings.Replace(data, "\\\\\\", ";", 1)
 

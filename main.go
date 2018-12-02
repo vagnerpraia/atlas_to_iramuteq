@@ -22,5 +22,10 @@ func main() {
 		separatorCsv = args[3]
 	}
 
-	service.ConvertFile(pathQuizFile, pathCsvFile, pathResultFile, separatorCsv)
+	quoteCsv := "\""
+	if len(args) > 4 {
+		quoteCsv = args[4]
+	}
+
+	service.ConvertFile(pathQuizFile, pathCsvFile, pathResultFile, separatorCsv, quoteCsv)
 }
