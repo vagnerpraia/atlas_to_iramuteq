@@ -1,4 +1,4 @@
-package service
+package convertFile
 
 func mountHeader(csvHeader []string, csvMap map[string][]string) map[string]string {
 	headerMap := make(map[string]string)

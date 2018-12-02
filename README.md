@@ -1,10 +1,11 @@
 # Atlas to Iramuteq
+Programa para a geração de arquivo para o programa Iramuteq, a partir de arquivos usados em questionários do programa Atlas.
 
 ## Parâmetros
 
-Lista de parâmetros a serem passados na linha de comando:
+Lista de parâmetros e sua respectiva ordem de utilização:
 
-* pathAtlasFile = Caminho do arquivo com o questionário do Atlas
+* pathQuizFile = Caminho do arquivo com o questionário do Atlas
 * pathCsvFile = Caminho do arquivo CSV com o dicionário de labels
 * pathResultFile = Caminho do arquivo com o resultado do processamento
 * separatorCsv = Separador utilizado no CSV
@@ -17,8 +18,8 @@ Lista de parâmetros a serem passados na linha de comando:
 #### Testes Unitários
 
 ```
-go test ./test/service -v -run TestConvertFileVersion7
-go test ./test/service -v -run TestConvertFileVersion8
+go test ./test/control -v -run TestRouterVersion7
+go test ./test/control -v -run TestRouterVersion78
 ```
 
 #### Testes do executável

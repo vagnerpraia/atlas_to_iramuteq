@@ -1,4 +1,4 @@
-package service
+package convertFile
 
 func mountResult(quizMap map[string][]string, headerMap map[string]string) map[string][]string {
 	resultMap := make(map[string][]string)
