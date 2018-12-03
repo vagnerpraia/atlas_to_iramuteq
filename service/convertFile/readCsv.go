@@ -58,18 +58,17 @@ func readCsv(pathFile string, separator string, quote string) ([]string, map[str
 			}
 
 			flagHeader = false
-		} else {
-			content := strings.Split(line, separator)
+		}
 
-			key := strings.Replace(content[0], "e", "", 1)
-			value := content[1:]
+		content := strings.Split(line, separator)
 
-			for _, data := range value {
-				data = strings.Trim(data, quote)
-				data = strings.Replace(data, "|||", separator, 1)
+		key := strings.Replace(content[0], "e", "", 1)
 
-				csvMap[key] = append(csvMap[key], data)
-			}
+		for _, data := range content {
+			data = strings.Trim(data, quote)
+			data = strings.Replace(data, "|||", separator, 1)
+
+			csvMap[key] = append(csvMap[key], data)
 		}
 	}
 
