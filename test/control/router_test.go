@@ -9,7 +9,7 @@ import (
 
 func TestRouterVersion7(t *testing.T) {
 	pathQuizFile := "C:/Teste/atlas_to_iramuteq/questionario_version7.txt"
-	pathCsvFile := "C:/Teste/atlas_to_iramuteq/escala.csv"
+	pathCsvFile := "C:/Teste/atlas_to_iramuteq/escala_version7.csv"
 	pathResultFile := "C:/Teste/atlas_to_iramuteq/resultado_version7.txt"
 	separatorCsv := ","
 	quoteCsv := "\""
@@ -31,9 +31,9 @@ func TestRouterVersion7(t *testing.T) {
 
 func TestRouterVersion8(t *testing.T) {
 	pathQuizFile := "C:/Teste/atlas_to_iramuteq/questionario_version8.txt"
-	pathCsvFile := "C:/Teste/atlas_to_iramuteq/escala.csv"
+	pathCsvFile := "C:/Teste/atlas_to_iramuteq/escala_version8.csv"
 	pathResultFile := "C:/Teste/atlas_to_iramuteq/resultado_version8.txt"
-	separatorCsv := ";"
+	separatorCsv := ","
 	quoteCsv := "\""
 
 	control.Config = model.Config{
