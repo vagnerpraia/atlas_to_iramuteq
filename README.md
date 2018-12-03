@@ -4,8 +4,8 @@ Programa para a geração de arquivo para o programa Iramuteq, a partir de arqui
 ## Download
 
 ### Versão atual (1.0.0):
-* Windows: [atlas_to_iramuteq.exe](https://github.com/vagnerpraia/atlas_to_iramuteq/releases/download/1.0.0/atlas_to_iramuteq)
-* Linux: [atlas_to_iramuteq](https://github.com/vagnerpraia/atlas_to_iramuteq/releases/download/1.0.0/atlas_to_iramuteq.exe)
+* Windows: [atlas_to_iramuteq.exe](https://github.com/vagnerpraia/atlas_to_iramuteq/releases/download/1.0.0/atlas_to_iramuteq.exe)
+* Linux: [atlas_to_iramuteq](https://github.com/vagnerpraia/atlas_to_iramuteq/releases/download/1.0.0/atlas_to_iramuteq)
 
 ## Utilização
 
