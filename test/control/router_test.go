@@ -50,3 +50,25 @@ func TestRouterVersion8(t *testing.T) {
 		t.Errorf("Ocorreu um erro.")
 	}
 }
+
+func Test(t *testing.T) {
+	pathQuizFile := "C:/Teste/atlas_to_iramuteq/felix/felix_Report_teste_vagner3.txt"
+	pathCsvFile := "C:/Teste/atlas_to_iramuteq/felix/RADIOGRAFIA_BAS_ATLASTI.csv"
+	pathResultFile := "C:/Teste/atlas_to_iramuteq/felix/resultado_12_03_2019.txt"
+	separatorCsv := ";"
+	quoteCsv := "\""
+
+	control.Config = model.Config{
+		pathQuizFile,
+		pathCsvFile,
+		pathResultFile,
+		separatorCsv,
+		quoteCsv,
+	}
+
+	response := control.Router(pathQuizFile)
+
+	if response == false {
+		t.Errorf("Ocorreu um erro.")
+	}
+}

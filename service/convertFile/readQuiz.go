@@ -52,7 +52,7 @@ func readQuiz(pathQuizFile string) map[string][]string {
 
 		flagHead := true
 		if version == 8 {
-			re := regexp.MustCompile("\\([0-9]*:[0-9]*\\) - [a-zA-Z] ?[0-9]*: [0-9]*e?$")
+			re := regexp.MustCompile("\\([0-9]*:[0-9]*\\) - [a-zA-Z] ?[0-9]*: ([0-9]*)(([^0-9])*?)$")
 			flagHead = re.MatchString(line)
 		} else if version == 7 {
 			flagHead = strings.Contains(line, "   (Super)")
@@ -61,17 +61,21 @@ func readQuiz(pathQuizFile string) map[string][]string {
 		if flagHead {
 			var pattern string
 			if version == 8 {
-				pattern = "[a-zA-Z] ?[0-9]*: [0-9]*e?$"
+				pattern = "[a-zA-Z] ?[0-9]*: ([0-9]*)(([^0-9])*?)$"
 			} else if version == 7 {
-				pattern = "^[a-zA-Z] ?[0-9]*: [0-9]*e?"
+				pattern = "^[a-zA-Z] ?[0-9]*: ([0-9]*)(([^0-9])*?)"
 			}
 			re := regexp.MustCompile(pattern)
 			substringRegex := re.FindStringSubmatch(line)[0]
 
-			re = regexp.MustCompile("[0-9]*e?$")
+			re = regexp.MustCompile("([0-9]*)(([^0-9])*?)$")
 			substringRegex = re.FindStringSubmatch(substringRegex)[0]
 
-			key = strings.Replace(substringRegex, "e", "", 1)
+			reKey, err := regexp.Compile("[^0-9]+")
+			if err != nil {
+				log.Fatal(err)
+			}
+			key = reKey.ReplaceAllString(substringRegex, "")
 		} else {
 			flagContainsContent := false
 			if len(line) > 0 {
